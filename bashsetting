@@ -3,3 +3,9 @@ export GIT_PROXY_COMMAND=~/git-proxy.sh
 export PS1="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$"
 export TERM=xterm-256color
 
+export WORKON_HOME=~/.virtual_env
+if [ -f '/usr/bin/virtualenvwrapper.sh' ]; then
+    source /usr/bin/virtualenvwrapper.sh
+fi
+
+
