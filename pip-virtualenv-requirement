@@ -3,3 +3,4 @@ flake8
 mccabe
 pylint
 argparse
+pycscope
