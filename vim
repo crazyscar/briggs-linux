@@ -10,4 +10,4 @@ else
     vim="/usr/bin/vim"
 fi
 
-$vim $@
+exec $vim $@
