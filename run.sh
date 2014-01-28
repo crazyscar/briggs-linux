@@ -67,7 +67,7 @@ function install_python27
         return
     fi
     cd ~/
-    if [[ ! -e `basename $PYTHON_URL`]]; then
+    if [[ ! -e `basename $PYTHON_URL` ]]; then
     	wget $PYTHON_URL
     fi
     tar xvf `basename $PYTHON_URL`
