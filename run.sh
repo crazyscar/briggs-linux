@@ -9,12 +9,12 @@ TMUX_TAR_GZ="tmux-1.8.tar.gz"
 PYTHON_URL="http://www.python.org/ftp/python/2.7.6/Python-2.7.6.tar.xz"
 PYTON_DIR="Python-2.7.6"
 
-CONFIG_DIR="~/briggs-linux"
+CONFIG_DIR="$HOME/briggs-linux"
 
 VIM_URL="hg clone https://vim.googlecode.com/hg/"
 
 VIM_RUNTIME_URL="https://github.com/crazyscar/vimrc.git"
-VIM_RUNTIME="~/.vim_runtime"
+VIM_RUNTIME="$HOME/.vim_runtime"
 
 
 function check_tools
