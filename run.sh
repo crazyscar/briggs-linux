@@ -52,7 +52,7 @@ function install_tmux18
         sudo ln -s /usr/local/lib/libevent-2.0.so.5 /usr/lib64/libevent-2.0.so.5
         
         echo "yum install ncurses-devel"
-        sudo yum install ncurses-devel
+        sudo yum install ncurses-devel -y
 
         tar zxvf $CONFIG_DIR/$TMUX_TAR_GZ -C ~/
         cd ~/$TMUX_DIR
@@ -67,8 +67,10 @@ function install_python27
         return
     fi
     cd ~/
-    wget $PYTHON_URL
-    tar zxvf `basename $PYTHON_URL`
+    if [[ ! -e `basename $PYTHON_URL`]]; then
+    	wget $PYTHON_URL
+    fi
+    tar xvf `basename $PYTHON_URL`
     cd $PYTON_DIR
     ./configure --prefix=/opt/python2.7 && make && sudo make install 
 }
@@ -85,7 +87,7 @@ function install_vim
     fi
 
     cd vim
-    LD_LIBRARY_PATH=/opt/python2.7/lib PATH=/opt/python2.7/bin:$PATH ./configure --prefix=/opt/python2.7/ --with-features=huge --enable-pythoninterp=yes --with-python-config-dir=/opt/python2.7/lib/python2.7/config
+    LD_LIBRARY_PATH=/opt/python2.7/lib PATH=/opt/python2.7/bin:$PATH ./configure --prefix=/opt/python2.7/ --with-features=huge --enable-pythoninterp=yes --with-python-config-dir=/opt/python2.7/lib/python2.7/config && make && sudo make install
 }
 
 # start
@@ -101,11 +103,14 @@ if (( $? !=0 )); then
     cat $CONFIG_DIR/bashsetting >> ~/.bashrc
 fi
 
-cp  $CONFIG_DIR/.tmux.conf ~/
-sudo cp $CONFIG_DIR/vim /usr/local/bin/
+cp  -f $CONFIG_DIR/.tmux.conf ~/
+sudo cp  -f $CONFIG_DIR/vim /usr/local/bin/
 
-git clone $VIM_RUNTIME_URL $VIM_RUNTIME
+if [[ ! -d $VIM_RUNTIME ]]; then
+    git clone $VIM_RUNTIME_URL $VIM_RUNTIME
+fi
 cd $VIM_RUNTIME
 git submodule init
 git submodule update
+bash $VIM_RUNTIME/install_awesome_vimrc.sh
 
