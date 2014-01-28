@@ -82,6 +82,8 @@ function install_vim
         return
     fi
 
+    cd ~/
+
     if [[ ! -d ~/vim ]]; then
         hg clone https://vim.googlecode.com/hg/ vim
     fi
