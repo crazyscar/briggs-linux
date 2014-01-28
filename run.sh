@@ -28,11 +28,17 @@ function check_tools
     if (( $? !=0 )); then
         tools="$tools gcc"
     fi
+    make --version 
+    if (( $? !=0 )); then
+        tools="$tools make"
+    fi
     hg --version
     if (( $? !=0 )); then
         tools="$tools hg"
     fi
-    sudo yum install $tools -y
+    if [[ $tools != ""  ]]; then
+    	sudo yum install $tools -y
+    fi
 }
 
 function install_tmux18
