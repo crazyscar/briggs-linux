@@ -10,4 +10,4 @@ if [ $? = 0 ]; then
     source $vir
 fi
 
-
+alias grep='grep --color'
