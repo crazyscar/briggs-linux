@@ -13,4 +13,4 @@ else
     vim="/usr/bin/vim"
 fi
 
-exec $vim $@
+exec $vim "$@"
