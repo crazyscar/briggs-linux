@@ -12,3 +12,5 @@ if [ $? = 0 ]; then
 fi
 
 alias grep='grep --color'
+alias g='git'
+alias fn='find . -name'
