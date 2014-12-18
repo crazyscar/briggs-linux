@@ -1,0 +1,17 @@
+[alias]
+	co = checkout
+	cl = clone
+	st = status
+	br = branch
+	pl = pull
+	ci = commit
+	df = diff
+[gitreview]
+	username = huan.jin
+[user]
+	email = huan.jin@hp.com
+	name = Huan Jin
+[color]
+	ui = true
+[push]
+	default = simple
