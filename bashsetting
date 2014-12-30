@@ -11,6 +11,7 @@ if [ $? = 0 ]; then
     source $vir
 fi
 
-alias grep='grep --color'
+alias grep='grep --color=auto'
+alias ls = 'ls --color=auto'
 alias g='git'
 alias fn='find . -name'
