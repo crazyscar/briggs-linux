@@ -10,7 +10,7 @@ GitTarF=${GitDir}.tar.xz
 mkdir -p $TargetDir && cd $TargetDir
 
 ## install deps for build doc
-sudo yum install -y asciidoc xmlto
+sudo yum install -y asciidoc xmlto libcurl-devel
 
 function install_git {
     if [ ! -e $GitTarF ];then
@@ -20,8 +20,7 @@ function install_git {
 	tar xvf ${GitTarF}
     fi
     cd ${GitDir}
-    make configure && ./configure
-    make all doc && sudo make install install-doc install-html 
+    ./configure && make all doc && sudo make install install-doc install-html 
 }
 
 install_git
