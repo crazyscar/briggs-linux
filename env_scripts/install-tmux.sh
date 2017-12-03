@@ -32,5 +32,10 @@ make
 sudo make install
 }
 
+function install_tmux_tpm {
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm 
+}
+
 install_libevent_2_x 
 install_tmux_2_6
+install_tmux_tpm
