@@ -1,6 +1,6 @@
 #!/bin/sh
 
-TARGET_DIR=`pwd`
+TARGET_DIR=~/opt/src/
 
 if [ -n "$1" ];then
     TARGET_DIR=$1
