@@ -61,6 +61,7 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(
   git
   autojump
+  extract
 )
 
 source $ZSH/oh-my-zsh.sh
