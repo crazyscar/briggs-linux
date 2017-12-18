@@ -39,7 +39,7 @@ function install_vim {
             --enable-gui=gtk2 \
             --enable-cscope \
             --prefix=/usr/local
-    make && make install
+    make && sudo make install
 
     sudo update-alternatives --install /usr/bin/editor editor /usr/local/bin/vim 1
     sudo update-alternatives --set editor /usr/local/bin/vim
