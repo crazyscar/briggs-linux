@@ -24,6 +24,6 @@ sudo useradd -s /sbin/nologin -g nginx -r nginx
 
 sudo yum install -y pcre-devel zlib-devel openssl-devel
 
-cd $NGINX && ./configure --sbin-path=/usr/local/nginx/nginx --conf-path=/usr/local/nginx/nginx.conf --pid-path=/usr/local/nginx/nginx.pid --with-http_ssl_module --with-stream --with-stream_ssl_module --user=nginx --group=nginx && make && sudo make install
+cd $NGINX && ./configure --prefix=/opt/webserver/nginx --with-http_ssl_module --with-stream --with-stream_ssl_module --user=nginx --group=nginx && make -j4 && sudo make install
 
-echo "nginx is under /usr/local/nginx/"
+echo "nginx is under /opt/webserver/nginx"
