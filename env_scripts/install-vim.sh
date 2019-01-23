@@ -2,18 +2,17 @@
 
 ## build vim from source
 
-TargetDir=~/opt/src
+TargetDir=$HOME/opt/src
 VimTar=vim-8.0.tar.bz2
 
 mkdir -p ${TargetDir}
 
 function get_vim {
     cd ${TargetDir}
-    if [ -e $VimTar ];then
-	echo "$VimTar exists, skip download"
-    else
+    [ -e $VimTar ] ||
+    {
     	wget ftp://ftp.vim.org/pub/vim/unix/vim-8.0.tar.bz2 -O ${VimTar}
-    fi
+    }
     tar xvf ${VimTar}
 }
 

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-TARGET_DIR=~/opt/src/
+TARGET_DIR=$HOME/opt/src/
 
 if [ -n "$1" ];then
     TARGET_DIR=$1
@@ -18,7 +18,7 @@ sudo yum install gcc kernel-devel make ncurses-devel -y
 
 function install_libevent_2_x {
     # DOWNLOAD SOURCES FOR LIBEVENT AND MAKE AND INSTALL
-    [ -e $LIB_EVENT_TGZ ] || { echo "get libevent source codes..."; wget https://github.com/downloads/libevent/libevent/${LIB_EVENT_TGZ}; }
+    [ -e $LIB_EVENT_TGZ ] || wget https://github.com/downloads/libevent/libevent/${LIB_EVENT_TGZ}
     tar -xvzf libevent-2.0.21-stable.tar.gz
     cd libevent-2.0.21-stable
     ./configure --prefix=/usr/local
@@ -27,13 +27,13 @@ function install_libevent_2_x {
 }
 
 function install_tmux_2_6 {
-# DOWNLOAD SOURCES FOR TMUX AND MAKE AND INSTALL
-[ -e $TMUX_TGZ ] || wget https://github.com/tmux/tmux/releases/download/2.6/${TMUX_TGZ}
-tar -xvzf tmux-2.6.tar.gz
-cd tmux-2.6
-LDFLAGS="-L/usr/local/lib -Wl,-rpath=/usr/local/lib" ./configure --prefix=/usr/local
-make
-sudo make install
+    # DOWNLOAD SOURCES FOR TMUX AND MAKE AND INSTALL
+    [ -e $TMUX_TGZ ] || wget https://github.com/tmux/tmux/releases/download/2.6/${TMUX_TGZ}
+    tar -xvzf tmux-2.6.tar.gz
+    cd tmux-2.6
+    LDFLAGS="-L/usr/local/lib -Wl,-rpath=/usr/local/lib" ./configure --prefix=/usr/local
+    make
+    sudo make install
 }
 
 function install_tmux_tpm {
