@@ -3,17 +3,21 @@
 ## build vim from source
 
 TargetDir=$HOME/opt/src
-VimTar=vim-8.0.tar.bz2
+VimVer=8.2.1000
+VimTar=vim-${VimVer}.tar.bz
+VimDir=vim-${VimVer}
+
+https://github.com/vim/vim/archive/v8.2.1000.tar.gz
 
 mkdir -p ${TargetDir}
 
 function get_vim {
     cd ${TargetDir}
-    [ -e $VimTar ] ||
+    [ -d ${VimDir} ] ||
     {
-    	wget ftp://ftp.vim.org/pub/vim/unix/vim-8.0.tar.bz2 -O ${VimTar}
+    	wget https://github.com/vim/vim/archive/v${VimVer}.tar.gz -O ${VimTar}
+        tar xvf ${VimTar}
     }
-    tar xvf ${VimTar}
 }
 
 function install_vim_deps {
@@ -26,7 +30,7 @@ function install_vim_deps {
 }
 
 function install_vim {
-    cd ${TargetDir}/vim80
+    cd ${TargetDir}/${VimDir}
 
     ./configure --with-features=huge \
             --enable-multibyte \
@@ -46,5 +50,5 @@ function install_vim {
 }
 
 get_vim
-install_vim_deps
-install_vim
+#install_vim_deps
+#install_vim
