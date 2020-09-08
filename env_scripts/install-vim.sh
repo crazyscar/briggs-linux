@@ -7,8 +7,6 @@ VimVer=8.2.1000
 VimTar=vim-${VimVer}.tar.bz
 VimDir=vim-${VimVer}
 
-https://github.com/vim/vim/archive/v8.2.1000.tar.gz
-
 mkdir -p ${TargetDir}
 
 function get_vim {
