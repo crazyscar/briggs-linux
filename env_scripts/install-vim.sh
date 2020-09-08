@@ -50,5 +50,5 @@ function install_vim {
 }
 
 get_vim
-#install_vim_deps
-#install_vim
+install_vim_deps
+install_vim
