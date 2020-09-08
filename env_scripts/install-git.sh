@@ -22,8 +22,9 @@ function install_git {
     [ -d $GitDir ] || tar xvf ${GitTarF}
 
     cd ${GitDir}
-    NPROC=$(get_n_proc)
-    ./configure && make -j${NPROC} all doc && sudo make install install-doc install-html 
+    ./configure && \\
+    m_make all doc && \\
+    sudo make install install-doc install-html 
 }
 
 install_git

@@ -21,8 +21,8 @@ function install_libevent_2_x {
     [ -e $LIB_EVENT_TGZ ] || wget https://github.com/downloads/libevent/libevent/${LIB_EVENT_TGZ}
     tar -xvzf libevent-2.0.21-stable.tar.gz
     cd libevent-2.0.21-stable
-    ./configure --prefix=/usr/local
-    make
+    ./configure --prefix=/usr/local && \\
+    m_make && \\
     sudo make install
 }
 
@@ -32,7 +32,7 @@ function install_tmux_2_6 {
     tar -xvzf tmux-2.6.tar.gz
     cd tmux-2.6
     LDFLAGS="-L/usr/local/lib -Wl,-rpath=/usr/local/lib" ./configure --prefix=/usr/local
-    make
+    m_make && \\
     sudo make install
 }
 

@@ -2,6 +2,8 @@
 
 ## build vim from source
 
+source ./common_func.sh
+
 TargetDir=$HOME/opt/src
 VimVer=8.2.1000
 VimTar=vim-${VimVer}.tar.bz
@@ -40,7 +42,8 @@ function install_vim {
             --enable-gui=gtk2 \
             --enable-cscope \
             --prefix=/usr/local
-    make && sudo make install
+    
+    m_make && sudo make install
 
     sudo update-alternatives --install /usr/bin/editor editor /usr/local/bin/vim 1
     sudo update-alternatives --set editor /usr/local/bin/vim

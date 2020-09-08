@@ -7,3 +7,8 @@ function get_n_proc {
     echo $N
 }
 
+function m_make {
+    NPROC=$(get_n_proc)
+    make -j${NPROC} $@
+}
+
